@@ -5,7 +5,7 @@ import 'package:learning_app/Common/Utils/app_colors.dart';
 import 'package:learning_app/Models/onBoardingModel.dart';
 import 'package:learning_app/Pages/OnBoarding/onBoardingWidgets.dart';
 
-import '../notifier/onBoarding_notifier.dart';
+import 'notifier/onBoarding_notifier.dart';
 
 class OnBoardingPage extends ConsumerWidget {
   OnBoardingPage({Key? key}) : super(key: key);
@@ -14,8 +14,8 @@ class OnBoardingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    double device_height = MediaQuery.of(context).size.height;
-    double device_width = MediaQuery.of(context).size.width;
+    double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceWidth = MediaQuery.of(context).size.width;
     final index = ref.watch(dotIndexProvider);
 
     return Scaffold(
@@ -34,7 +34,7 @@ class OnBoardingPage extends ConsumerWidget {
                 itemCount: onBoardingList.length,
                 itemBuilder: (context, index) {
                   return appOnBoardingPage(
-                      device_height, device_width, onBoardingList[index],
+                      context, deviceHeight, deviceWidth, onBoardingList[index],
                       pageController: pageController, index: index);
                 },
               ),
@@ -46,9 +46,8 @@ class OnBoardingPage extends ConsumerWidget {
                     dotsCount: onBoardingList.length,
                     decorator: DotsDecorator(
                       activeColor: AppColors.primaryElement,
-                      size: Size.square(device_height * 0.01),
-                      activeSize:
-                          Size(device_width * 0.05, device_height * 0.01),
+                      size: Size.square(deviceHeight * 0.01),
+                      activeSize: Size(deviceWidth * 0.05, deviceHeight * 0.01),
                       activeShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                     ),

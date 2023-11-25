@@ -2,10 +2,12 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_app/Common/Widgets/app_shadows.dart';
 import 'package:learning_app/Models/onBoardingModel.dart';
+import 'package:learning_app/Pages/SignIn/signInPage.dart';
 
 import '../../Common/Widgets/text_widgets.dart';
 
-Widget appOnBoardingPage(double Dheight, double Dwidth, onBoardingModel model,
+Widget appOnBoardingPage(
+    BuildContext context, double Dheight, double Dwidth, onBoardingModel model,
     {required PageController pageController, int index = 0}) {
   return Column(
     children: [
@@ -25,24 +27,26 @@ Widget appOnBoardingPage(double Dheight, double Dwidth, onBoardingModel model,
       SizedBox(height: Dheight * 0.02),
       text16Normal(text: model.desc),
       Spacer(),
-      _nextButton(Dheight, Dwidth, pageController, index),
+      _nextButton(context, Dheight, Dwidth, pageController, index),
     ],
   );
 }
 
-Widget _nextButton(
-    double height, double width, PageController pageController, int index) {
+Widget _nextButton(BuildContext context, double height, double width,
+    PageController pageController, int index) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
         pageController.animateToPage(index++,
             duration: const Duration(milliseconds: 350), curve: Curves.linear);
+      } else {
+        Navigator.of(context).pushNamed("/signIn");
       }
     },
     child: Container(
       height: 50,
       width: width * 0.8,
-      margin: EdgeInsets.only(bottom: height*0.04),
+      margin: EdgeInsets.only(bottom: height * 0.04),
       decoration: appBoxShadow(),
       child: Center(
           child: text16Normal(
