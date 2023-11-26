@@ -27,7 +27,6 @@ Widget text16Normal(
   );
 }
 
-
 Widget text14Normal(
     {String text = "", Color color = AppColors.primaryThreeElementText}) {
   return Text(
@@ -36,7 +35,21 @@ Widget text14Normal(
     style: TextStyle(
       color: color,
       fontWeight: FontWeight.normal,
-      fontSize:14,
+      fontSize: 14,
     ),
+  );
+}
+
+Widget textUnderLine({String text = ""}) {
+  return GestureDetector(
+    onTap: () {},
+    child: Text(text,
+        style: const TextStyle(
+          color: AppColors.primaryText,
+          fontWeight: FontWeight.normal,
+          fontSize: 14,
+          decoration: TextDecoration.underline,
+          decorationColor: AppColors.primaryText,
+        )),
   );
 }

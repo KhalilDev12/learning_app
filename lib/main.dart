@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learning_app/Common/Utils/app_colors.dart';
 import 'package:learning_app/Pages/SignIn/signInPage.dart';
 import 'Pages/OnBoarding/onBoardingPage.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryElement),
         useMaterial3: true,
       ),
       initialRoute: "/",

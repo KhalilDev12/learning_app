@@ -14,14 +14,42 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       appBar: signInAppBar(),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          // Top SignIn Buttons
-          thirdPartySignIn(deviceHeight, deviceWidth),
-
-          // More SignIn Option Message
-          text14Normal(text:"Or use your email account to Sign In " ),
-        ],
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: deviceHeight * 0.03),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Top SignIn Buttons
+            thirdPartySignIn(deviceHeight, deviceWidth),
+            // More SignIn Option Message
+            Center(
+                child: text14Normal(
+                    text: "Or use your email account to Sign In ")),
+            SizedBox(height: deviceHeight * 0.05),
+            // Email Text Box
+            appTextField(
+                label: "Email",
+                height: deviceHeight * 0.07,
+                width: deviceWidth,
+                iconName: "assets/icons/user.png",
+                hintText: "Enter your Email address",
+                obscureText: false),
+            SizedBox(height: deviceHeight * 0.03),
+            // Password Text Box
+            appTextField(
+                label: "Password",
+                height: deviceHeight * 0.07,
+                width: deviceWidth,
+                iconName: "assets/icons/lock.png",
+                hintText: "Enter your Password",
+                obscureText: true),
+            SizedBox(height: deviceHeight * 0.01),
+            // Forget Password message
+            Container(
+                child: textUnderLine(
+                    text: "Forget Password? ")),
+          ],
+        ),
       ),
     );
   }

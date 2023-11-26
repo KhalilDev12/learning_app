@@ -8,14 +8,24 @@ BoxDecoration appBoxShadow(
     sR = 1.0,
     bR = 2.0}) {
   return BoxDecoration(
-      color: AppColors.primaryElement,
+      color: color,
       borderRadius: BorderRadius.circular(radius),
       boxShadow: [
         BoxShadow(
-          color: color,
+          color: Colors.grey.withOpacity(0.1),
           spreadRadius: sR,
           blurRadius: bR,
           offset: const Offset(0, 1),
         ),
       ]);
+}
+
+BoxDecoration appBoxDecorationTextField(
+    {Color backgroundColor = AppColors.primaryBackground,
+    double radius = 15,
+    Color borderColor = AppColors.primaryFourElementText}) {
+  return BoxDecoration(
+      color: backgroundColor,
+      borderRadius: BorderRadius.circular(radius),
+      border: Border.all(color: borderColor));
 }
